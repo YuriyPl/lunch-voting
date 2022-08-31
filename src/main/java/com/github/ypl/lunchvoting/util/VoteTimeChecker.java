@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.Clock;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 
 @AllArgsConstructor
 @Component
@@ -15,7 +16,9 @@ public class VoteTimeChecker {
 
     public void checkVoteTime() {
         if (LocalTime.now(clock).isAfter(boundaryTime)) {
-            throw new IllegalRequestDataException("Too late: " + LocalTime.now(clock) + ". The re-vote must be sent no later than " + boundaryTime);
+            throw new IllegalRequestDataException(
+                    "Too late: " + LocalTime.now(clock).truncatedTo(ChronoUnit.MINUTES) + ". The re-vote must be sent no later than: " + boundaryTime
+            );
         }
     }
 }

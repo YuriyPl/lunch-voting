@@ -1,5 +1,6 @@
 package com.github.ypl.lunchvoting.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public abstract class AbstractBaseEntity implements Persistable<Integer> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     protected Integer id;
 
     public int id() {
@@ -33,6 +35,7 @@ public abstract class AbstractBaseEntity implements Persistable<Integer> {
         return id;
     }
 
+    @Schema(hidden = true)
     @Override
     public boolean isNew() {
         return id == null;

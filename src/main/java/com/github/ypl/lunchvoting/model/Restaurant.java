@@ -1,5 +1,6 @@
 package com.github.ypl.lunchvoting.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -36,6 +37,7 @@ public class Restaurant extends AbstractNamedEntity {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
     @OrderBy("name")
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @Schema(hidden = true)
     private List<Dish> dishes;
 
     protected Restaurant() {

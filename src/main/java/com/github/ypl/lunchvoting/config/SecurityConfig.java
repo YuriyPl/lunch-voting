@@ -48,7 +48,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/profile").anonymous()
-                .antMatchers(HttpMethod.GET, "/api/restaurants/*").anonymous()
+                .antMatchers(HttpMethod.GET, "/api/restaurants/*").permitAll()
                 .antMatchers("/api/profile").authenticated()
                 .antMatchers("/api/votes/**").authenticated()
                 .antMatchers("/api/admin/**").hasRole(Role.ADMIN.name())
