@@ -1,0 +1,38 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  jpa:
+    show-sql: true
+    open-in-view: false
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 20
+        jdbc.batch_size: 20
+  datasource:
+    url: jdbc:h2:mem:lunchvoting
+    username: sa
+    password:
+
+  jackson.visibility:
+    field: any
+    getter: none
+    setter: none
+    is-getter: none
+
+  cache:
+    cache-names: restaurants
+    caffeine.spec: maximumSize=1000,expireAfterAccess=60s
+
+logging.level:
+  root: WARN
+  com.github.ypl.lunchvoting: DEBUG
+  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver: DEBUG
+
+server.servlet.encoding:
+  charset: UTF-8
+  enabled: true
+  force: true
