@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = RestaurantController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 @CacheConfig(cacheNames = "restaurants")
-public class RestaurantController extends com.github.ypl.lunchvoting.web.restaurant.AbstractRestaurantController {
+public class RestaurantController extends AbstractRestaurantController {
     static final String REST_URL = "/api/restaurants";
 
     @GetMapping("/{id}")

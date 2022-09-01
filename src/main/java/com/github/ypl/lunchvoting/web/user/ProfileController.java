@@ -29,7 +29,7 @@ import static com.github.ypl.lunchvoting.util.ValidationUtil.checkNew;
 @AllArgsConstructor
 @RestController
 @RequestMapping(value = ProfileController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
-public class ProfileController extends com.github.ypl.lunchvoting.web.user.AbstractUserController {
+public class ProfileController extends AbstractUserController {
     static final String REST_URL = "/api/profile";
 
     @GetMapping

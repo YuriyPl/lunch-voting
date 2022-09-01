@@ -34,7 +34,7 @@ import static com.github.ypl.lunchvoting.util.ValidationUtil.checkNew;
 @RestController
 @RequestMapping(value = AdminRestaurantController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 @CacheConfig(cacheNames = "restaurants")
-public class AdminRestaurantController extends com.github.ypl.lunchvoting.web.restaurant.AbstractRestaurantController {
+public class AdminRestaurantController extends AbstractRestaurantController {
     static final String REST_URL = "/api/admin/restaurants";
 
     @GetMapping("/{id}")
